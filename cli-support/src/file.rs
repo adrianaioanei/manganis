@@ -32,7 +32,7 @@ impl Process for FileOptions {
             return Ok(());
         }
         match self {
-            Self::Other { .. } => {
+            Self::Video { .. } | Self::Other { .. } => {
                 let bytes = source.read_to_bytes()?;
                 std::fs::write(output_path, bytes).with_context(|| {
                     format!(
